@@ -1,0 +1,179 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "WebShop Studio";
+}
+
+<section class="hero">
+    <div class="hero__copy">
+        <p class="eyebrow">Innovatív webáruház</p>
+        <h1>Modern animációk, gördülékeny élmény & mesterséges intelligencia-alapú interakciók.</h1>
+        <p class="lede">Építsük meg a webshopod, ami nemcsak elad, hanem lenyűgöz. Egyedi UI, mikro-animációk, dinamikus termékbemutatók és UX-központú folyamatok – mindez .NET alapokon, hogy bővíthető és biztonságos legyen.</p>
+        <div class="actions">
+            <a class="pill" href="#kapcsolat">Időpontot kérek</a>
+            <button class="ghost" data-scroll="#funkciok">Fedezd fel a funkciókat</button>
+        </div>
+        <div class="hero__stats">
+            <div>
+                <strong>0-24</strong>
+                <span>Felügyelt infrastruktúra</span>
+            </div>
+            <div>
+                <strong>+68%</strong>
+                <span>Konverzió növekedés animált UI-val</span>
+            </div>
+            <div>
+                <strong>4,9/5</strong>
+                <span>Ügyfélelégedettség</span>
+            </div>
+        </div>
+    </div>
+    <div class="hero__visual">
+        <div class="floating-card">
+            <p class="eyebrow">Valós idejű ajánlások</p>
+            <h3>AI-merchandising</h3>
+            <p>Dinamikus terméksorrend, készletfüggő akciók, személyre szabott kuponok.</p>
+            <div class="sparkline">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="pill pill--ghost">Adatvezérelt UX</div>
+        </div>
+        <div class="glow"></div>
+    </div>
+</section>
+
+<section id="szolgaltatasok" class="panel panel--grid">
+    <div>
+        <p class="eyebrow">Szolgáltatások</p>
+        <h2>Stratégiai tervezéstől az indulásig.</h2>
+        <p>Workshopok, UX prototípusok, animált felületek és teljes .NET ökoszisztéma. Integrált fizetés, logisztika és marketing automatizmusok.</p>
+    </div>
+    <div class="tiles">
+        <article class="tile">
+            <div class="tile__icon">⚡</div>
+            <h3>Gyors keretrendszer</h3>
+            <p>Később könnyen bővíthető .NET backoffice, tiszta komponens alapú front-enddel.</p>
+        </article>
+        <article class="tile">
+            <div class="tile__icon">🎞️</div>
+            <h3>Mikro-animációk</h3>
+            <p>Hover állapotok, parallax hatás, görgetésre reagáló elemek, hogy élmény legyen a vásárlás.</p>
+        </article>
+        <article class="tile">
+            <div class="tile__icon">🛡️</div>
+            <h3>Biztonság & skálázhatóság</h3>
+            <p>Identity, szerepkörök, CDN, cache – minden adott a gyors és stabil működéshez.</p>
+        </article>
+    </div>
+</section>
+
+<section id="funkciok" class="panel">
+    <div class="section-header">
+        <p class="eyebrow">Funkciók</p>
+        <h2>Vizuális élmény, ami konvertál.</h2>
+        <p>Interaktív elemek, ragadós CTA-k, videós hősblokkok és valós idejű státuszok. A kód készen áll a további integrációkra.</p>
+    </div>
+    <div class="feature-grid">
+        <div class="feature">
+            <div class="badge">UI</div>
+            <h3>Vibráló hero szekció</h3>
+            <p>Animált gradient, lebegő kártyák és tooltip-szerű jelzések, hogy a fő üzenet azonnal átmenjen.</p>
+        </div>
+        <div class="feature">
+            <div class="badge">Kereskedelem</div>
+            <h3>Gyors kosár-élmény</h3>
+            <p>Éles, kontrasztos CTA-k, egy mozdulattal elérhető kosár gomb és megerősítő animációk.</p>
+        </div>
+        <div class="feature">
+            <div class="badge">Integráció</div>
+            <h3>API-ready architektúra</h3>
+            <p>REST/GraphQL rétegre tervezett struktúra, egyszerűen bővíthető microservice kapcsolattal.</p>
+        </div>
+        <div class="feature">
+            <div class="badge">SEO</div>
+            <h3>Optimalizált tartalom</h3>
+            <p>Gyors betöltés, strukturált adatokra kész markup és jól szervezett heading-hierarchia.</p>
+        </div>
+    </div>
+</section>
+
+<section id="csomagok" class="panel panel--grid">
+    <div>
+        <p class="eyebrow">Csomagok</p>
+        <h2>Válassz fókusz szerint, építs modulárisan.</h2>
+        <p>Minden csomag modern animációs mintákkal, optimalizált hostinggal és .NET alapú backenddel indul.</p>
+    </div>
+    <div class="pricing">
+        <div class="pricing-card highlight">
+            <p class="badge">Legnépszerűbb</p>
+            <h3>Launch</h3>
+            <p class="price">290 000 Ft</p>
+            <ul>
+                <li>Hero + termék grid + checkout flow</li>
+                <li>Alap animációk & microinterakciók</li>
+                <li>Stripe/Barion előkészítés</li>
+            </ul>
+            <button class="pill">Megrendelem</button>
+        </div>
+        <div class="pricing-card">
+            <h3>Scale</h3>
+            <p class="price">560 000 Ft</p>
+            <ul>
+                <li>Komplex landing + kampány oldalak</li>
+                <li>AI-ajánlórendszer integrációra kész</li>
+                <li>Haladó analitika & heatmap</li>
+            </ul>
+            <button class="ghost" data-scroll="#kapcsolat">Ajánlatot kérek</button>
+        </div>
+    </div>
+</section>
+
+<section id="kapcsolat" class="panel contact">
+    <div>
+        <p class="eyebrow">Kapcsolat</p>
+        <h2>Mesélj a webshop ötletedről.</h2>
+        <p>Írd le a célokat, az iparágat és a meglévő rendszereket. 24 órán belül felvesszük a kapcsolatot.</p>
+        <form class="contact-form">
+            <div class="form-row">
+                <label>Név
+                    <input type="text" name="name" placeholder="Teljes neved" />
+                </label>
+                <label>Email
+                    <input type="email" name="email" placeholder="Te@ceg.hu" />
+                </label>
+            </div>
+            <label>Üzenet
+                <textarea name="message" rows="4" placeholder="Miben segíthetünk?" ></textarea>
+            </label>
+            <div class="form-actions">
+                <button type="submit" class="pill">Küldés</button>
+                <span class="microcopy">A beküldés demó jellegű, a későbbi API endpoint könnyen beköthető.</span>
+            </div>
+        </form>
+    </div>
+    <div class="contact-card">
+        <p class="eyebrow">Miért velünk?</p>
+        <h3>UX fókusz, fejlesztői precizitás és élő support.</h3>
+        <ul>
+            <li>Motion design könyvtár, újrahasznosítható komponensek</li>
+            <li>Kompatibilis Azure, AWS és on-prem környezettel</li>
+            <li>Teljes GitHub Actions pipeline-ra előkészített struktúra</li>
+        </ul>
+        <div class="status">
+            <div class="dot dot--live"></div> Projekt slot szabad Q2-ben
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('[data-scroll]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-scroll');
+                    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
+}
