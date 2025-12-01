@@ -31,6 +31,10 @@
             <span class="dot dot--live"></span> Demo nézet, az API bekötése később jön.
         </div>
     </div>
+    <div class="products-hero__visual">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80" alt="Kollekciós lookbook helykitöltő fotó" loading="lazy" />
+        <div class="products-hero__caption">Illusztrációs fotó – a végleges termékképek ide fognak kerülni.</div>
+    </div>
 </section>
 
 @foreach (var category in Model.Categories)
@@ -51,6 +55,9 @@
             @foreach (var item in category.Items)
             {
                 <article class="product-card" data-category="@category.Key">
+                    <div class="product-card__media">
+                        <img src="@item.ImageUrl" alt="@item.Name termékképének helykitöltője" loading="lazy" />
+                    </div>
                     <div class="product-card__header">
                         <div>
                             <p class="eyebrow">@item.Tagline</p>

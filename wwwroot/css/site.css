@@ -197,6 +197,33 @@ body {
     min-height: 320px;
 }
 
+.hero__image {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: calc(var(--radius) + 6px);
+    padding: 12px;
+    box-shadow: var(--shadow);
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero__image img {
+    width: 100%;
+    display: block;
+    border-radius: calc(var(--radius) + 2px);
+    object-fit: cover;
+    aspect-ratio: 16 / 10;
+    background: linear-gradient(120deg, rgba(124, 242, 212, 0.14), rgba(130, 162, 255, 0.14));
+}
+
+.hero__image figcaption {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 0.95rem;
+    text-align: center;
+}
+
 .floating-card {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -556,6 +583,28 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.products-hero__visual {
+    background: var(--panel-strong);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: calc(var(--radius) + 4px);
+    padding: 12px;
+    box-shadow: var(--shadow);
+}
+
+.products-hero__visual img {
+    width: 100%;
+    display: block;
+    border-radius: var(--radius);
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+}
+
+.products-hero__caption {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
 .products-hero__card ul {
     padding-left: 18px;
     color: var(--muted);
@@ -632,6 +681,22 @@ body {
 .product-card:hover {
     transform: translateY(-4px);
     border-color: var(--accent);
+}
+
+.product-card__media {
+    position: relative;
+    border-radius: calc(var(--radius) + 2px);
+    overflow: hidden;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(120deg, rgba(124, 242, 212, 0.12), rgba(130, 162, 255, 0.12));
+}
+
+.product-card__media img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
 }
 
 .product-card__header {
@@ -767,6 +832,27 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 22px;
     align-items: start;
+}
+
+.product-detail__media {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: calc(var(--radius) + 6px);
+    padding: 10px;
+    box-shadow: var(--shadow);
+}
+
+.product-detail__media img {
+    width: 100%;
+    display: block;
+    border-radius: calc(var(--radius) + 2px);
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.product-detail__media .microcopy {
+    margin-top: 6px;
+    color: var(--muted);
 }
 
 .product-detail__meta {
