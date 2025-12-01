@@ -1,0 +1,76 @@
+@page "/products/{category}/{product}"
+@model ProductDetailsModel
+@{
+    ViewData["Title"] = $"{Model.Product?.Name} - Termék részletek";
+}
+
+@if (Model.Product is null || Model.Category is null)
+{
+    <section class="panel">
+        <p class="eyebrow">Termék nem található</p>
+        <h1>Nem létező termék vagy kategória.</h1>
+        <p class="muted">Ellenőrizd az URL-t vagy térj vissza a kollekciók listájához.</p>
+        <a class="pill" href="/Products">Vissza a termékekhez</a>
+    </section>
+}
+else
+{
+    <section class="product-detail">
+        <div class="product-detail__header">
+            <div>
+                <p class="eyebrow">@Model.Category.Badge</p>
+                <h1>@Model.Product.Name</h1>
+                <p class="muted">@Model.Product.Description</p>
+                <div class="product-detail__meta">
+                    <span class="pill pill--ghost">@Model.Category.Name</span>
+                    <span class="badge">@Model.Product.Tagline</span>
+                    <span class="price">@Model.Product.Price</span>
+                </div>
+            </div>
+            <div class="detail-card">
+                <p class="eyebrow">Rendelés</p>
+                <h3>Válaszd ki a paramétereket, majd add le a rendelést.</h3>
+                <form class="order-form" aria-label="Termék rendelése">
+                    <label>Név
+                        <input type="text" placeholder="Minta Márton" />
+                    </label>
+                    <label>Email
+                        <input type="email" placeholder="te@pelda.hu" />
+                    </label>
+                    <div class="form-row">
+                        <label>Kategória
+                            <input type="text" value="@Model.Category.Name" readonly />
+                        </label>
+                        <label>Termék
+                            <input type="text" value="@Model.Product.Name" readonly />
+                        </label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="pill" disabled>Rendelés (hamarosan)</button>
+                        <span class="microcopy">A gomb demó, a valódi checkout integráció később érkezik.</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="product-detail__body">
+            <div>
+                <h2>Miért fogod szeretni?</h2>
+                <ul class="feature-list feature-list--columns">
+                    @foreach (var feature in Model.Product.Features)
+                    {
+                        <li>@feature</li>
+                    }
+                </ul>
+                <a class="ghost" href="/Products">Vissza a termékgridre</a>
+            </div>
+            <div class="detail-highlight">
+                <div class="badge">Prémium minőség</div>
+                <p>Modern dizájn, bővíthető készletkezelés és azonnal integrálható fizetés. A részletes termékoldal segít döntést hozni, mielőtt a felhasználó leadná a rendelést.</p>
+                <div class="mini-status">
+                    <span class="dot dot--live"></span> Demo nézet – a rendelés gomb itt aktiválható később.
+                </div>
+            </div>
+        </div>
+    </section>
+}

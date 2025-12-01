@@ -8,7 +8,7 @@
     <div>
         <p class="eyebrow">Kedvenc kategóriáink</p>
         <h1>Streetwear inspirált kollekció kártyás megjelenítéssel.</h1>
-        <p class="lede">Pólók, baseball sapkák, napszemüvegek és kiegészítők — mind külön oldallal, gyors váltással és egy könnyen megnyitható rendelési füllel.</p>
+        <p class="lede">Pólók, baseball sapkák, napszemüvegek és kiegészítők — mind külön oldallal, gyors váltással és részletes termékoldalakkal.</p>
         <div class="product-actions">
             <div class="tab-list" role="tablist" aria-label="Kategóriák">
                 @foreach (var category in Model.Categories)
@@ -16,9 +16,6 @@
                     <button class="pill pill--ghost" type="button" data-tab="@category.Key" aria-controls="panel-@category.Key">@category.Name</button>
                 }
             </div>
-            <button class="ghost open-order" type="button" data-order-toggle>
-                Rendelési fül megnyitása
-            </button>
         </div>
     </div>
     <div class="products-hero__card">
@@ -71,8 +68,7 @@
                     <div class="product-card__footer">
                         <span class="badge">@category.Name</span>
                         <div class="cta-group">
-                            <button class="ghost" type="button">Részletek</button>
-                            <button class="pill" type="button">Rendelés</button>
+                            <a class="ghost" href="@Url.Page("/ProductDetails", new { category = category.Key, product = item.Slug })">Részletek</a>
                         </div>
                     </div>
                 </article>
@@ -80,48 +76,6 @@
         </div>
     </section>
 }
-
-<aside class="order-drawer" data-order-drawer>
-    <div class="order-drawer__header">
-        <div>
-            <p class="eyebrow">Rendelési fül</p>
-            <h3>Kísérleti checkout</h3>
-            <p class="muted">A rendelés gomb jelenleg csak ezt a panelt nyitja meg. A tényleges fizetés később kerül bekötésre.</p>
-        </div>
-        <button class="ghost" type="button" data-order-close>Bezárás</button>
-    </div>
-    <form class="order-form" aria-label="Rendelés előkészítése">
-        <label>Név
-            <input type="text" placeholder="Minta Márton" />
-        </label>
-        <label>Email
-            <input type="email" placeholder="te@pelda.hu" />
-        </label>
-        <div class="form-row">
-            <label>Kategória
-                <select>
-                    @foreach (var category in Model.Categories)
-                    {
-                        <option>@category.Name</option>
-                    }
-                </select>
-            </label>
-            <label>Méret
-                <select>
-                    <option>XS</option>
-                    <option>S</option>
-                    <option>M</option>
-                    <option>L</option>
-                    <option>XL</option>
-                </select>
-            </label>
-        </div>
-        <div class="form-actions">
-            <button type="button" class="pill" disabled>Rendelés (hamarosan)</button>
-            <span class="microcopy">A gomb demó, még nem indít valós folyamatot.</span>
-        </div>
-    </form>
-</aside>
 
 @section Scripts {
     <script>
@@ -149,16 +103,6 @@
             if (tabButtons.length) {
                 setActive(tabButtons[0].dataset.tab);
             }
-
-            const drawer = document.querySelector('[data-order-drawer]');
-            const toggleButtons = document.querySelectorAll('[data-order-toggle]');
-            const closeBtn = document.querySelector('[data-order-close]');
-
-            const openDrawer = () => drawer?.classList.add('open');
-            const closeDrawer = () => drawer?.classList.remove('open');
-
-            toggleButtons.forEach(btn => btn.addEventListener('click', openDrawer));
-            if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
         });
     </script>
 }
