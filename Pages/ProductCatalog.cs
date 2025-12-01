@@ -58,7 +58,7 @@ public static class ProductCatalog
                     "12 400 Ft",
                     "Futóbarát",
                     new[] { "UV szűrő anyag", "Hálós betét", "Állítható pánt" },
-                    "https://images.unsplash.com/photo-1521572168894-4fe0bf0a16e3?auto=format&fit=crop&w=900&q=80"
+                    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80&sat=-30"
                 ),
                 new(
                     "crestline",
@@ -94,7 +94,7 @@ public static class ProductCatalog
                     "21 900 Ft",
                     "Polarizált",
                     new[] { "UV400 védelem", "Csúszásmentes orrtámasz", "Törlőkendővel" },
-                    "https://images.unsplash.com/photo-1503342250614-26aa3c449867?auto=format&fit=crop&w=900&q=80"
+                    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80&sat=-30"
                 ),
                 new(
                     "azure-tide",
