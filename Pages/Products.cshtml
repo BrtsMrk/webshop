@@ -1,0 +1,164 @@
+@page
+@model ProductsModel
+@{
+    ViewData["Title"] = "Termékek";
+}
+
+<section class="products-hero">
+    <div>
+        <p class="eyebrow">Kedvenc kategóriáink</p>
+        <h1>Streetwear inspirált kollekció kártyás megjelenítéssel.</h1>
+        <p class="lede">Pólók, baseball sapkák, napszemüvegek és kiegészítők — mind külön oldallal, gyors váltással és egy könnyen megnyitható rendelési füllel.</p>
+        <div class="product-actions">
+            <div class="tab-list" role="tablist" aria-label="Kategóriák">
+                @foreach (var category in Model.Categories)
+                {
+                    <button class="pill pill--ghost" type="button" data-tab="@category.Key" aria-controls="panel-@category.Key">@category.Name</button>
+                }
+            </div>
+            <button class="ghost open-order" type="button" data-order-toggle>
+                Rendelési fül megnyitása
+            </button>
+        </div>
+    </div>
+    <div class="products-hero__card">
+        <div class="badge">Új kollekció</div>
+        <h3>Limitált drop</h3>
+        <p>Texturált anyagok, letisztult branding és könnyen bővíthető SKU-k. Az UI komponensek készen állnak az élő készletkezeléshez.</p>
+        <ul>
+            <li>Animált hover állapotok</li>
+            <li>Gyors szűrők kategóriánként</li>
+            <li>Mobilbarát kártya rács</li>
+        </ul>
+        <div class="mini-status">
+            <span class="dot dot--live"></span> Demo nézet, az API bekötése később jön.
+        </div>
+    </div>
+</section>
+
+@foreach (var category in Model.Categories)
+{
+    <section class="category-panel" id="@category.Key" role="tabpanel" aria-labelledby="tab-@category.Key" data-tab-panel="@category.Key">
+        <div class="section-header">
+            <p class="eyebrow">@category.Badge</p>
+            <div class="category-title">
+                <h2>@category.Name</h2>
+                <p>@category.Description</p>
+            </div>
+            <div class="category-meta">
+                <span class="pill pill--ghost">Külön oldal a @category.Name.ToLower()</span>
+                <span class="microcopy">@category.Items.Count() termék</span>
+            </div>
+        </div>
+        <div class="product-grid">
+            @foreach (var item in category.Items)
+            {
+                <article class="product-card" data-category="@category.Key">
+                    <div class="product-card__header">
+                        <div>
+                            <p class="eyebrow">@item.Tagline</p>
+                            <h3>@item.Name</h3>
+                        </div>
+                        <div class="price">@item.Price</div>
+                    </div>
+                    <p class="muted">@item.Description</p>
+                    <ul class="feature-list">
+                        @foreach (var feature in item.Features)
+                        {
+                            <li>@feature</li>
+                        }
+                    </ul>
+                    <div class="product-card__footer">
+                        <span class="badge">@category.Name</span>
+                        <div class="cta-group">
+                            <button class="ghost" type="button">Részletek</button>
+                            <button class="pill" type="button">Rendelés</button>
+                        </div>
+                    </div>
+                </article>
+            }
+        </div>
+    </section>
+}
+
+<aside class="order-drawer" data-order-drawer>
+    <div class="order-drawer__header">
+        <div>
+            <p class="eyebrow">Rendelési fül</p>
+            <h3>Kísérleti checkout</h3>
+            <p class="muted">A rendelés gomb jelenleg csak ezt a panelt nyitja meg. A tényleges fizetés később kerül bekötésre.</p>
+        </div>
+        <button class="ghost" type="button" data-order-close>Bezárás</button>
+    </div>
+    <form class="order-form" aria-label="Rendelés előkészítése">
+        <label>Név
+            <input type="text" placeholder="Minta Márton" />
+        </label>
+        <label>Email
+            <input type="email" placeholder="te@pelda.hu" />
+        </label>
+        <div class="form-row">
+            <label>Kategória
+                <select>
+                    @foreach (var category in Model.Categories)
+                    {
+                        <option>@category.Name</option>
+                    }
+                </select>
+            </label>
+            <label>Méret
+                <select>
+                    <option>XS</option>
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                    <option>XL</option>
+                </select>
+            </label>
+        </div>
+        <div class="form-actions">
+            <button type="button" class="pill" disabled>Rendelés (hamarosan)</button>
+            <span class="microcopy">A gomb demó, még nem indít valós folyamatot.</span>
+        </div>
+    </form>
+</aside>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('[data-tab]');
+            const panels = document.querySelectorAll('[data-tab-panel]');
+
+            const setActive = (key) => {
+                tabButtons.forEach(btn => {
+                    const isActive = btn.dataset.tab === key;
+                    btn.classList.toggle('pill', isActive);
+                    btn.classList.toggle('pill--ghost', !isActive);
+                    btn.id = `tab-${btn.dataset.tab}`;
+                    btn.setAttribute('aria-selected', isActive);
+                });
+                panels.forEach(panel => {
+                    panel.classList.toggle('active', panel.dataset.tabPanel === key);
+                });
+            };
+
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', () => setActive(btn.dataset.tab));
+            });
+
+            if (tabButtons.length) {
+                setActive(tabButtons[0].dataset.tab);
+            }
+
+            const drawer = document.querySelector('[data-order-drawer]');
+            const toggleButtons = document.querySelectorAll('[data-order-toggle]');
+            const closeBtn = document.querySelector('[data-order-close]');
+
+            const openDrawer = () => drawer?.classList.add('open');
+            const closeDrawer = () => drawer?.classList.remove('open');
+
+            toggleButtons.forEach(btn => btn.addEventListener('click', openDrawer));
+            if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+        });
+    </script>
+}
