@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WebShop Studio - Interaktív élmény</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="page-chrome">
+        <header class="topbar">
+            <div class="logo">
+                <div class="orb"></div>
+                <div>
+                    <span class="eyebrow">WebShop Studio</span>
+                    <strong>Digitális piactér újragondolva</strong>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="#szolgaltatasok">Szolgáltatások</a>
+                <a href="#funkciok">Funkciók</a>
+                <a href="#csomagok">Csomagok</a>
+                <a href="#kapcsolat" class="pill">Időpontot kérek</a>
+            </nav>
+        </header>
+
+        <main role="main" class="content">
+            @RenderBody()
+        </main>
+
+        <footer class="footer">
+            <div>
+                <p class="eyebrow">Teljes körű webshop élmény</p>
+                <h3>Építsünk együtt olyan digitális boltot, ahol jó vásárolni.</h3>
+            </div>
+            <div class="footer-grid">
+                <div>
+                    <h4>Elérhetőség</h4>
+                    <p>hello@webshopstudio.hu</p>
+                    <p>+36 30 555 1234</p>
+                </div>
+                <div>
+                    <h4>Nyitvatartás</h4>
+                    <p>Hétfő - Péntek: 09:00 - 18:00</p>
+                    <p>Szombat: 10:00 - 14:00</p>
+                </div>
+                <div>
+                    <h4>Közösség</h4>
+                    <p>LinkedIn · Behance · Dribbble</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="~/js/site.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

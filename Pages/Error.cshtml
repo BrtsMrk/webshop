@@ -1,0 +1,11 @@
+@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Hiba";
+}
+
+<section class="panel">
+    <h1>Valami váratlan történt.</h1>
+    <p>Kérjük próbáld újra vagy lépj kapcsolatba velünk.</p>
+    <p><strong>Kérés azonosító:</strong> @Model.RequestId</p>
+</section>
